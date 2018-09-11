@@ -27,9 +27,6 @@ client.on('message', msg => {
     }
 });
 
- 
-  
-module.exports = codes;
 
  client.on('message', message => {
    if(message.content.startsWith(prefix + "invites")) {
