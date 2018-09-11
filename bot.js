@@ -82,42 +82,7 @@ message.channel.send(`${user} لقد قمت بدعوه ${inviteCount} دعوه.`
     });
     }
 });
-  
- Rocket.on('message', message => {//help msg
-  if (message.author.bot) return;
-   if (message.content === prefix + "help") {
-      message.react("☑")            
 
-   
-
-
-      message.author.sendMessage(`**شكرا لك لاستعمال البوت**
-
-      __**الاوامر الادارية :gear:**__
-
-❖${prefix}** bc ** ==>**لارسال رسالة لكل الاعضاء**
-❖${prefix}** soon ** ==>**لطرد شخص من السيرفر**
-❖${prefix}** soon ** ==>**لحصر شخص من السيرفر**
-❖${prefix}** clear ** ==>**لمسح كل رسائل الشات**
-      __**الاوامر العامة :coffee:**__
-❖${prefix}** avatar ** ==>**لكي يعطيك رابط صورتك او صورة صديقك**
-❖${prefix}** serveravatar ** ==>**لكي يعطيك رابط صورة السيرفر**
-❖${prefix}** server ** ==>**لمعلومات السيرفر**
-❖${prefix}** id ** ==>**لمعلومات عنك**
-❖${prefix}** bot ** ==>**معلومات عن البوت**
-❖${prefix}** invite ** ==>**لاحضار البوت الى سيرفرك**
-❖${prefix}** stats ** ==>**معلومات عن البوت بشكل اخر**
-❖${prefix}** roles ** ==>**لكي ترى كل رتب السيرفر**
-❖${prefix}** broadcast ** ==>**برودكاست مثل برو بوت**
-      __**الاوامر الترفيهية :coffee:**__
-❖${prefix}** rps ** ==>**حجره ورقه مقص**
-❖${prefix}** roll ** ==>**لاختيار رقم عشوائي**
-By :<@280749272498962432> | __**شكرا لكم لاستعمال البوت**__
-
-`);
-
-}
-});
 
 client.on("message", function(message) {
    if(message.content.startsWith(prefix + "rps")) {
