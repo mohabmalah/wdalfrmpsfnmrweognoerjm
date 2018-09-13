@@ -469,6 +469,7 @@ client.on('message', message => {
 .addField('     **ban ** ' ,' **  لاعطاء بان  ** ')
 .addField('     **kick ** ' ,' **  لاعطاء كك  ** ')
 .addField('     **id ** ' ,' **  لاظهار الايدي حقك ** ')
+.addField('     **play ** ' ,' **  لتشغيل اغاني ** ')
 .setColor('#7d2dbe')
   message.channel.sendEmbed(embed);
     }
