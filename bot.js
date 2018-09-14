@@ -898,9 +898,73 @@ function checkDays(date) {
     return days + (days == 1 ? " day" : " days") + " ago";
     };
 
+const bannedwords = [
+  "#credit",
+  "#profile",
+  "#rep",
+  "#top",
+  "%level",
+  "%تقديم",
+  "-play",
+  "-stop",
+  "-p",
+  "-s",
+  "!invites",
+  "!top",
+  "G.play",
+  "G.stop",
+  "G.skip",
+  "-skip"
+
+]
+client.on('message', message => {
+  var Muted = message.guild.roles.find("name", "muted");
+  var warn = message.guild.roles.find("name", "warn");
+  if(bannedwords.some(word => message.content.includes(word))) {
+  if(message.channel.id !== '481475376212606987') return;
+  if (message.author.bot) return;
+  if(message.member.roles.has(warn)) return;
+  if(!message.member.roles.has(warn.id)) {
+  message.member.addRole(warn)
+  message.reply("**`تم اعطائك تحذير لاستخدام اوامر البوت فى الشات العام` 😠**")
+  }
+  if(message.member.roles.has(warn.id)) {
+      message.member.addRole(Muted)
+      message.member.removeRole(warn)
+      message.reply("**`تم اعطائك ميوت كتابى تواصل مع احد اعضاء الادارة لازالتة` 🤐**")
+  }
+  }
+  })
+
+client.on("message", async message => {
+  if(message.author.bot) return;
+  if(message.channel.type === "dm") return;
+
+  let prefix = "$";
+  let messageArray = message.content.split (" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
 
 
 
+if(cmd === `${prefix}8ball`){
+
+
+if(!args[1]) return message.reply("Please ask a full question!");
+let replies = ["Yes", "No.", "I don't know.", "Ask again later plez."];
+
+  let result = Math.floor((Math.random() * replies.length));
+  let question = args.slice(1).join(" ");
+
+  let ballembed = new Discord.RichEmbed ()
+  .setAuthor(message.author.tag)
+  .setColor("#FF9900")
+  .addField("Question", question)
+  .addField("Answer", replies[result]);
+
+  message.channel.send(ballembed);
+}
+});
 
 
 
